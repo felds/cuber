@@ -34,10 +34,10 @@
             "cache:clear": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
         },
-        "_post-install-cmd": [
+        "post-install-cmd": [
             "@auto-scripts"
         ],
-        "_post-update-cmd": [
+        "post-update-cmd": [
             "@auto-scripts"
         ]
     },
