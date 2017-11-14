@@ -94,5 +94,8 @@
     },
     "symfony/dotenv": {
         "version": "v3.3.12"
+    },
+    "heroku/heroku-buildpack-php": {
+        "version": "v126"
     }
 }
