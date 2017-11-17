@@ -37,8 +37,6 @@ final class CubeController extends Controller
         $form = $this->createNewForm($entity);
 
         $form->handleRequest($request);
-        // dump($form->isSubmitted(), $form->isValid());
-        // die;
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($entity);
             $em->flush();
@@ -54,7 +52,9 @@ final class CubeController extends Controller
 
     private function createNewForm(Cube $entity): FormInterface
     {
-        $builder = $this->createFormBuilder($entity);
+        $builder = $this->createFormBuilder($entity)
+            ->add('name')
+        ;
 
         return $builder->getForm();
     }
