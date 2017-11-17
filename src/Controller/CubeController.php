@@ -1,8 +1,10 @@
 <?php
-
 declare(strict_types=1);
+
 namespace App\Controller;
 
+use App\Entity\Cube;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,13 +12,17 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/cube")
  */
-class CubeController extends Controller
+final class CubeController extends Controller
 {
     /**
      * @Route("/")
      */
-    public function indexAction(): Response
+    public function indexAction(EntityManagerInterface $em): Response
     {
-        return $this->render('cube/index.html.twig');
+        $entities = $em->getRepository(Cube::class)->findAll([], [ 'updatedAt' => 'DESC' ]);
+
+        return $this->render('cube/index.html.twig', [
+            'entities' => $entities,
+        ]);
     }
 }
