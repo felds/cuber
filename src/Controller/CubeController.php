@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Entity\Cube;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,7 +22,7 @@ final class CubeController extends Controller
     {
         $entities = $em->getRepository(Cube::class)->findAll([], [ 'updatedAt' => 'DESC' ]);
 
-        return $this->render('cube/index.html.twig', [
+        return $this->render('Cube/index.html.twig', [
             'entities' => $entities,
         ]);
     }
@@ -32,5 +33,18 @@ final class CubeController extends Controller
     public function newAction(EntityManagerInterface $em): Response
     {
         $entity = new Cube();
+        $form = $this->createNewForm($entity);
+
+        return $this->render('Cube/new.html.twig', [
+            'entity' => $entity,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    private function createNewForm(Cube $entity): FormInterface
+    {
+        $builder = $this->createFormBuilder($entity);
+
+        return $builder->getForm();
     }
 }
