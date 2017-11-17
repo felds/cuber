@@ -25,4 +25,12 @@ final class CubeController extends Controller
             'entities' => $entities,
         ]);
     }
+
+    /**
+     * @Route("/new")
+     */
+    public function newAction(EntityManagerInterface $em): Response
+    {
+        $entity = new Cube();
+    }
 }

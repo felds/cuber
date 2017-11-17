@@ -9,13 +9,15 @@ use Ramsey\Uuid\Uuid;
 /**
  * @ORM\Entity()
  */
-class Cube
+class Cube implements Traits\TimestampableInterface
 {
+    use Traits\Timestampable;
+
     /**
      * @ORM\Id()
      * @ORM\Column(type="guid")
      */
-    public $id;
+    private $id;
 
     public function __construct()
     {
