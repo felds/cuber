@@ -7,6 +7,7 @@ use App\Entity\Cube;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -30,10 +31,20 @@ final class CubeController extends Controller
     /**
      * @Route("/new")
      */
-    public function newAction(EntityManagerInterface $em): Response
+    public function newAction(Request $request, EntityManagerInterface $em): Response
     {
         $entity = new Cube();
         $form = $this->createNewForm($entity);
+
+        $form->handleRequest($request);
+        // dump($form->isSubmitted(), $form->isValid());
+        // die;
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirectToRoute('app_cube_index');
+        }
 
         return $this->render('Cube/new.html.twig', [
             'entity' => $entity,

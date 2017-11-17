@@ -373,5 +373,17 @@
     },
     "symfony/validator": {
         "version": "v3.3.13"
+    },
+    "symfony/polyfill-util": {
+        "version": "v1.6.0"
+    },
+    "symfony/polyfill-php56": {
+        "version": "v1.6.0"
+    },
+    "symfony/security-core": {
+        "version": "v3.3.13"
+    },
+    "symfony/security-csrf": {
+        "version": "v3.3.12"
     }
 }
