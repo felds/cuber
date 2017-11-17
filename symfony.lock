@@ -289,5 +289,59 @@
     },
     "symfony/browser-kit": {
         "version": "v3.3.12"
+    },
+    "ramsey/uuid": {
+        "version": "3.7.1"
+    },
+    "ocramius/package-versions": {
+        "version": "1.1.3"
+    },
+    "zendframework/zend-eventmanager": {
+        "version": "3.2.0"
+    },
+    "zendframework/zend-code": {
+        "version": "3.3.0"
+    },
+    "ocramius/proxy-manager": {
+        "version": "2.1.1"
+    },
+    "doctrine/dbal": {
+        "version": "v2.6.2"
+    },
+    "doctrine/migrations": {
+        "version": "v1.6.0"
+    },
+    "symfony/doctrine-bridge": {
+        "version": "v3.3.13"
+    },
+    "doctrine/doctrine-cache-bundle": {
+        "version": "1.3.2"
+    },
+    "jdorn/sql-formatter": {
+        "version": "v1.2.17"
+    },
+    "doctrine/doctrine-bundle": {
+        "version": "1.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.6",
+            "ref": "1fb8eb14c1bb103865e8ebbb51d651717f3c3d94"
+        }
+    },
+    "doctrine/doctrine-migrations-bundle": {
+        "version": "1.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.2",
+            "ref": "c1431086fec31f17fbcfe6d6d7e92059458facc1"
+        }
+    },
+    "doctrine/orm": {
+        "version": "v2.5.12"
+    },
+    "symfony/orm-pack": {
+        "version": "v1.0.4"
     }
 }

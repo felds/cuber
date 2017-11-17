@@ -12,7 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CubeController extends Controller
 {
-
     /**
      * @Route("/")
      */
