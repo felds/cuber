@@ -1,7 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>All the cubes</h1>
 
-<a href="{{ path('app_cube_new') }}">Create a new cube</a>
+    <h1>All the cubes</h1>
+
+    {% for entity in entities %}
+        <p><a href="{{ path('app_cube_show', {id:entity.id}) }}">{{ entity }}</a></p>
+    {% endfor %}
+
+    <a href="{{ path('app_cube_new') }}">Create a new cube</a>
+
 {% endblock %}
