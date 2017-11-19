@@ -50,6 +50,16 @@ final class CubeController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/{id}")
+     */
+    public function showAction(Request $request, Cube $entity): Response
+    {
+        return $this->render('Cube/show', [
+           'entity' => $entity,
+        ]);
+    }
+
     private function createNewForm(Cube $entity): FormInterface
     {
         $builder = $this->createFormBuilder($entity)

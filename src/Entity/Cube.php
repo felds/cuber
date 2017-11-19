@@ -31,9 +31,14 @@ final class Cube implements Traits\TimestampableInterface
         $this->id = Uuid::uuid4();
     }
 
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
     public function getId(): string
     {
-        return $this->id;
+        return (string) $this->id;
     }
 
     public function setName(string $name): self
