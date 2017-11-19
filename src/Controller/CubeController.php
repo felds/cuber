@@ -55,7 +55,7 @@ final class CubeController extends Controller
      */
     public function showAction(Request $request, Cube $entity): Response
     {
-        return $this->render('Cube/show', [
+        return $this->render('Cube/show.html.twig', [
            'entity' => $entity,
         ]);
     }
