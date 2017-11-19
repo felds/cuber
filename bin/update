@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+cd $(dirname $0)
+
+./console doctrine:schema:update --force --dump-sql
+
