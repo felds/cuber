@@ -7,6 +7,16 @@
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script>
+                ;(function () {
+                    const forms = document.querySelectorAll('form')
+
+                    for (let form of forms) {
+                        form.noValidate = true
+                    }
+                })()
+            </script>
+        {% endblock %}
     </body>
 </html>
