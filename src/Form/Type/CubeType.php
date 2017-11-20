@@ -15,7 +15,9 @@ class CubeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [])
+            ->add('name', TextType::class, [
+                'empty_data' => "",
+            ])
             ->add('image', FileType::class, [
                 'mapped' => false,
             ])
