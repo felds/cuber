@@ -31,3 +31,13 @@ services:
     App\Doctrine\EventListener\:
         resource: '../src/Doctrine/EventListener'
         tags: ['doctrine.event_subscriber']
+
+
+    Aws\S3\S3Client:
+        arguments:
+            $args:
+                version: 'latest'
+                region: '%env(S3_REGION)%'
+                credentials:
+                    key: '%env(S3_ID)%'
+                    secret: '%env(S3_SECRET)%'
