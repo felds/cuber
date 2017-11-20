@@ -5,7 +5,10 @@
     <h1>All the cubes</h1>
 
     {% for entity in entities %}
-        <p><a href="{{ path('app_cube_show', {id:entity.id}) }}">{{ entity }}</a></p>
+        <p>
+            <a href="{{ path('app_cube_show', {id:entity.id}) }}">{{ entity }}</a>
+            (<a href="{{ path('app_cube_edit', {id:entity.id}) }}">edit</a>)
+        </p>
     {% endfor %}
 
     <a href="{{ path('app_cube_new') }}">Create a new cube</a>

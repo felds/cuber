@@ -60,6 +60,26 @@ final class CubeController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/{id}/edit")
+     */
+    public function editAction(Request $request, Cube $entity, EntityManagerInterface $em): Response
+    {
+        $form = $this->createNewForm($entity);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+
+            return $this->redirectToRoute('app_cube_index');
+        }
+
+        return $this->render('Cube/edit.html.twig', [
+            'form' => $form->createView(),
+            'entity' => $entity,
+        ]);
+    }
+
     private function createNewForm(Cube $entity): FormInterface
     {
         $builder = $this->createFormBuilder($entity)
