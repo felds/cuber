@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Entity\Cube;
+use App\Form\Type\CubeType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormInterface;
@@ -34,7 +35,7 @@ final class CubeController extends Controller
     public function newAction(Request $request, EntityManagerInterface $em): Response
     {
         $entity = new Cube();
-        $form = $this->createNewForm($entity);
+        $form = $this->createForm(CubeType::class, $entity);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -65,7 +66,7 @@ final class CubeController extends Controller
      */
     public function editAction(Request $request, Cube $entity, EntityManagerInterface $em): Response
     {
-        $form = $this->createNewForm($entity);
+        $form = $this->createForm(CubeType::class, $entity);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -78,14 +79,5 @@ final class CubeController extends Controller
             'form' => $form->createView(),
             'entity' => $entity,
         ]);
-    }
-
-    private function createNewForm(Cube $entity): FormInterface
-    {
-        $builder = $this->createFormBuilder($entity)
-            ->add('name')
-        ;
-
-        return $builder->getForm();
     }
 }
