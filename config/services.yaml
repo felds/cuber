@@ -41,3 +41,5 @@ services:
                 credentials:
                     key: '%env(S3_ID)%'
                     secret: '%env(S3_SECRET)%'
+    League\Flysystem\AwsS3v3\AwsS3Adapter:
+        arguments: ['@Aws\S3\S3Client', '%env(S3_BUCKET)%']
